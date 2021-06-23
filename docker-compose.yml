@@ -1,0 +1,14 @@
+version: "3"
+  
+services:
+  dhcp:
+    image: djaydev/glass-isc-dhcp
+    network_mode: host
+    volumes: 
+      - ./isc-dhcp/dhcp:/etc/dhcp:rw
+      - ./isc-dhcp/leases:/var/lib/dhcp:rw
+    environment: 
+      TZ: Atlantic/Cape_Verde
+      ADMINPASSWORD: glassadmin
+      WEBSOCKETPORT: 8080
+      WEBADMINPORT: 3000
